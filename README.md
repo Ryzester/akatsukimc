@@ -1,22 +1,26 @@
-# Minecraft VIP Shop
+# 暁鯖 複数ページ公式サイト
 
-GitHub Pagesにそのまま置ける静的サイトです。
+カテゴリ別ページ:
+- index.html ホーム
+- news.html ニュース
+- pvp.html PvP紹介
+- rules.html サーバールール
+- gallery.html 実スクショギャラリー
+- shop.html VIPショップ
+- legal.html 特商法
+- privacy.html プライバシー
 
-## 内容
-- `index.html` : VIP 1,000円の購入ページ
-- `legal.html` : 特定商取引法に基づく表記テンプレート
-- `privacy.html` : プライバシーポリシーテンプレート
+共通:
+- style.css
+- script.js
+- assets/akatsuki-icon.png
 
-## Stripe設定
-`index.html` の次の行を探してください。
+ギャラリー:
+assets/gallery-1.jpg ～ gallery-5.jpg
 
-```js
-const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/REPLACE_ME";
-```
-
-Stripeで1,000円の商品・Payment Linkを作成したあと、
-`REPLACE_ME` のURL全体を本物のPayment Linkへ変更してください。
-
-## 注意
-この静的サイトだけでは、支払い後のMinecraftランク自動付与まではできません。
-自動付与にはWebhookを受け取るバックエンド、またはサーバー側プラグイン等が必要です。
+アニメーション:
+- スクロール表示時フェードアップ
+- ヒーロー背景移動
+- ロゴ浮遊
+- カードホバー
+- ギャラリー画像ズーム
