@@ -21,7 +21,12 @@ function copyIP(){
 }
 
 let chosenPlan="",chosenPrice=0,chosenDays=0;
-const STRIPE_CHECKOUT_URL="https://buy.stripe.com/REPLACE_ME";
+const STRIPE_LINKS = {
+    3: "https://buy.stripe.com/test_3cI8wI1dLemb99IdL79bO00",
+    30: "https://buy.stripe.com/test_8x2bIU5u17XNeu27mJ9bO01",
+    90: "https://buy.stripe.com/test_eVq8wI09H91R71A5eB9bO02",
+    180: "https://buy.stripe.com/test_00weV609H2Dt99I6iF9bO03"
+};
 
 function selectPlan(name,price,days){
   chosenPlan=name;chosenPrice=price;chosenDays=days;
@@ -35,16 +40,46 @@ function selectPlan(name,price,days){
   box.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-function startCheckout(){
-  const id=document.getElementById("mcid").value.trim();
-  const error=document.getElementById("error");
-  if(!chosenPlan){error.style.display="block";error.textContent="VIP期間を選択してください。";return;}
-  if(!/^[A-Za-z0-9_]{3,16}$/.test(id)){error.style.display="block";error.textContent="Minecraft IDを正しく入力してください。";return;}
-  if(STRIPE_CHECKOUT_URL.includes("REPLACE_ME")){error.style.display="block";error.textContent="Stripeの決済URLがまだ設定されていません。";return;}
-  error.style.display="none";
-  const url=new URL(STRIPE_CHECKOUT_URL);
-  url.searchParams.set("client_reference_id",id);
-  url.searchParams.set("plan",chosenPlan);
-  url.searchParams.set("days",chosenDays);
-  location.href=url.toString();
+function startCheckout() {
+
+    const id =
+        document.getElementById("mcid")
+            .value
+            .trim();
+
+    const error =
+        document.getElementById("error");
+
+    if (!chosenPlan || chosenDays <= 0) {
+        error.style.display = "block";
+        error.textContent =
+            "VIPプランを選択してください。";
+        return;
+    }
+
+    if (!/^[A-Za-z0-9_]{3,16}$/.test(id)) {
+        error.style.display = "block";
+        error.textContent =
+            "Minecraft IDを正しく入力してください。";
+        return;
+    }
+
+    const baseUrl =
+        STRIPE_LINKS[chosenDays];
+
+    if (!baseUrl) {
+        error.style.display = "block";
+        error.textContent =
+            "このプランの決済リンクが設定されていません。";
+        return;
+    }
+
+    error.style.display = "none";
+
+    const url =
+        baseUrl
+        + "?client_reference_id="
+        + encodeURIComponent(id);
+
+    window.location.href = url;
 }
