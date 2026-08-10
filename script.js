@@ -3,10 +3,10 @@ let chosenPrice = 0;
 let chosenDays = 0;
 
 const STRIPE_LINKS = {
-    3: "https://buy.stripe.com/7sY00c7CKaEq39xbKj0ZW02",
-    30: "https://buy.stripe.com/28EaEQ4qybIufWj15F0ZW01",
-    90: "https://buy.stripe.com/6oU6oA7CKbIu8tRdSr0ZW00",
-    180: "https://buy.stripe.com/9B6bIU4qydQCdOb6pZ0ZW03"
+  3: "https://buy.stripe.com/7sY00c7CKaEq39xbKj0ZW02",
+  30: "https://buy.stripe.com/28EaEQ4qybIufWj15F0ZW01",
+  90: "https://buy.stripe.com/6oU6oA7CKbIu8tRdSr0ZW00",
+  180: "https://buy.stripe.com/9B6bIU4qydQCdOb6pZ0ZW03"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
