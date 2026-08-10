@@ -1,13 +1,16 @@
-# 暁鯖 Website
+# 暁鯖 Website - Clean URL版
 
-GitHub Pages 用のクリーンURL版です。
+元のデザイン・CSS・画像・アニメーションを維持したまま、URLだけを `/shop/` 形式に変更した版です。
 
-- `/shop/` → `shop/index.html`
-- `/news/` → `news/index.html`
-- `/pvp/` → `pvp/index.html`
-- `/rules/` → `rules/index.html`
-- `/gallery/` → `gallery/index.html`
-- `/legal/` → `legal/index.html`
-- `/privacy/` → `privacy/index.html`
+GitHub Pages のリポジトリ直下へ、このフォルダの中身をそのまま配置してください。
 
-`style.css`、`script.js`、`assets/` はルートに置いています。Stripeリンクは本番用Payment Linksに更新済みです。
+- `/`
+- `/news/`
+- `/pvp/`
+- `/rules/`
+- `/gallery/`
+- `/shop/`
+- `/legal/`
+- `/privacy/`
+
+Stripeリンクは本番用4リンクに設定済みです。
